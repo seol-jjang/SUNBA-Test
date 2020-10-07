@@ -28,19 +28,21 @@
 
 main {
     width: 700px;
-    height: 100vh;
     margin: 0 auto;
     background-color: white;
 }
 
 .hero {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    color: var(--black-color);
-    display: none;
+    height: 100vh;
+    .hero__wrap {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        color: var(--black-color);
+        animation: fade-in .7s forwards;
+    }
     &__title {
         text-align: center;
         line-height: 1.5;
@@ -52,7 +54,7 @@ main {
             font-family: 'Noto Sans KR', sans-serif;
         }
     }
-    .start-btn {
+    .hero__wrap .start-btn {
         @include btn;
         cursor: pointer;
         outline: none;
@@ -61,13 +63,16 @@ main {
 }
 
 .qna {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    color: var(--black-color);
     display: none;
+    height: 100vh;
+    &__wrap {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        color: var(--black-color);
+    }
     &__page span {
         font-size: 2em;
     }
@@ -91,21 +96,27 @@ main {
 }
 
 .loading {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    color: var(--black-color);
     display: none;
+    height: 100vh;
+    &__wrap {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        color: var(--black-color);
+    }
 }
 
 .result {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0;
-    color: var(--black-color);
+    display: none;
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 0;
+        color: var(--black-color);
+    }
     &__title {
         display: flex;
         flex-direction: column;
@@ -120,7 +131,26 @@ main {
             margin: 50px 0;
         }
     }
-    p {
+    &__info {
         font-family: 'Noto Sans KR', sans-serif;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 15px, 10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }

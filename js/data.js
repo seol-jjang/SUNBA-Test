@@ -1,0 +1,2 @@
+const qnaList = [];
+const resultList = [];
