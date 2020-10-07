@@ -1,0 +1,11 @@
+@import "_variables";
+
+@mixin btn {
+    padding: 15px 15px;
+    border: 5px solid var(--black-color);
+    border-radius: 30px;
+    background-color: var(--black-color);
+    font-size: var(--font-medium);
+    text-align: center;
+    color: white;
+}
