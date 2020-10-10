@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap');
 @import "common/responsive-mixins";
 @import "common/style-mixins";
+@import "common/animation";
 
 :root {
     --green-color: #169b63;
@@ -137,24 +138,5 @@ main {
     }
     &__info {
         font-family: 'Noto Sans KR', sans-serif;
-    }
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        transform: translate3d(0, 15px, 10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
     }
 }

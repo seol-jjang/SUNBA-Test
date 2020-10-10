@@ -1,6 +1,23 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css";
 @import url("https://fonts.googleapis.com/earlyaccess/hanna.css");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap");
+.fade-in {
+  animation: fade-in 0.7s forwards; }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 15px, 10px); }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 :root {
   --green-color: #169b63;
   --black-color: #1a1a1a;
@@ -121,17 +138,3 @@ main {
       margin: 50px 0; }
   .result__info {
     font-family: 'Noto Sans KR', sans-serif; }
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 15px, 10px); }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0); } }
-
-@keyframes fade-out {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
