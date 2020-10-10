@@ -37,7 +37,7 @@ const chooseAnswer = (answerText, index) => {
             choiceContainer.innerHTML = "";
             parent.style.animation = "fade-in 0.3s forwards";
             NextQuestion();
-        }, 500);
+        }, 300);
     });
 }
 
@@ -70,7 +70,7 @@ const handleStart = () => {
     setTimeout(()=> {
         hero.style.display = "none";
         qna.style.display = "block";
-    }, 500);
+    }, 400);
     NextQuestion();
 }
 
