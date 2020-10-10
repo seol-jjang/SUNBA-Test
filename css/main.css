@@ -35,12 +35,16 @@ main {
     color: var(--black-color);
     animation: fade-in .7s forwards; }
   .hero__title {
-    text-align: center;
-    line-height: 1.5; }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; }
     .hero__title h3 {
+      width: 70%;
       margin-bottom: 30px;
       font-size: var(--font-large); }
     .hero__title p {
+      line-height: 1.4;
       font-family: 'Noto Sans KR', sans-serif; }
   .hero .hero__wrap .start-btn {
     padding: 15px 15px;
@@ -80,10 +84,10 @@ main {
       font-size: var(--font-medium);
       text-align: center;
       color: white;
-      width: 80%;
+      width: 100%;
       cursor: pointer;
       outline: none; }
-      .qna__choice button:first-child {
+      .qna__choice button:not(:last-child) {
         margin-bottom: 30px; }
 
 .loading {

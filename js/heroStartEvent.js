@@ -1,12 +1,14 @@
 const btn = document.querySelector(".start-btn");
 const title = document.querySelector(".hero__title h3");
+const span = title.querySelector("span");
 
 const eventHandler = {
     mouseOver: function() {
-        title.innerText = "바뀜!";
+        span.innerText = "유튜브";
+
     },
     mouseOut: function() {
-        title.innerText = "제목";
+        span.innerText = "유튜브";
     }
 };
 const {mouseOver, mouseOut} = eventHandler;
