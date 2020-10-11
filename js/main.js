@@ -60,10 +60,6 @@ const NextQuestion = () => {
     }
 }
 
-function init() {
-    NextQuestion();
-}
-
 const handleStart = () => {
     hero.style.animation = "fade-out 0.3s forwards";
     qna.style.animation = "fade-in 0.3s forwards";

@@ -2,7 +2,10 @@
 @import url("https://fonts.googleapis.com/earlyaccess/hanna.css");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap");
 .fade-in {
-  animation: fade-in 0.7s forwards; }
+  animation: fade-in 0.3s forwards; }
+
+.fade-out {
+  animation: fade-out 0.3s forwards; }
 
 @keyframes fade-in {
   0% {
@@ -22,10 +25,10 @@
   --green-color: #169b63;
   --black-color: #1a1a1a;
   --grey-color: #6d6d6d;
-  --font-large: 5em;
-  --font-medium: 3em;
-  --font-small: 2em;
-  --font-default: 1em; }
+  --font-large: 80px;
+  --font-medium: 48px;
+  --font-small: 32px;
+  --font-default: 16px; }
 
 * {
   box-sizing: border-box;
@@ -37,104 +40,61 @@
     color: inherit; }
 
 main {
-  width: 700px;
-  margin: 0 auto;
   background-color: white; }
 
-.hero {
-  height: 100vh; }
-  .hero .hero__wrap {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    color: var(--black-color);
-    animation: fade-in .7s forwards; }
-  .hero__title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; }
-    .hero__title h3 {
-      width: 70%;
-      margin-bottom: 30px;
-      font-size: var(--font-large); }
-    .hero__title p {
-      line-height: 1.4;
-      font-family: 'Noto Sans KR', sans-serif; }
-  .hero .hero__wrap .start-btn {
-    padding: 15px 15px;
-    border: 5px solid var(--black-color);
-    border-radius: 30px;
-    background-color: var(--black-color);
-    font-size: var(--font-medium);
-    text-align: center;
-    color: white;
-    cursor: pointer;
-    outline: none;
-    width: 50%; }
+section {
+  margin: 0 auto;
+  min-height: 100vh; }
 
-.qna {
-  display: none;
-  height: 100vh; }
-  .qna__wrap {
+.hero {
+  height: 100vh;
+  padding: 70px 10px; }
+  .hero__wrap {
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    color: var(--black-color); }
-  .qna__page span {
-    font-size: 2em; }
-  .qna__title {
-    font-size: var(--font-medium); }
-  .qna__choice {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    .qna__choice button {
-      padding: 15px 15px;
+    justify-content: space-between;
+    animation: fade-in .7s forwards; }
+    .hero__wrap .start-btn {
+      padding: 15px;
       border: 5px solid var(--black-color);
       border-radius: 30px;
       background-color: var(--black-color);
       font-size: var(--font-medium);
       text-align: center;
       color: white;
-      width: 100%;
+      margin-top: 30px;
       cursor: pointer;
-      outline: none; }
-      .qna__choice button:not(:last-child) {
-        margin-bottom: 30px; }
-
-.loading {
-  display: none;
-  height: 100vh; }
-  .loading__wrap {
-    height: 100%;
+      outline: none;
+      width: 50%; }
+  .hero__title {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    color: var(--black-color); }
+    text-align: center; }
+    .hero__title h3 {
+      margin-bottom: 60px;
+      font-size: var(--font-large); }
+    .hero__title p {
+      line-height: 1.4;
+      font-family: 'Noto Sans KR', sans-serif; }
+
+@media (max-width: 480px) {
+  .hero .hero__title h3 {
+    font-size: 40px; }
+  .hero .hero__title p {
+    font-size: 13px; }
+  .hero .start-btn {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px; } }
 
 .result {
   display: none; }
-  .result__wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 0;
-    color: var(--black-color); }
-  .result__title {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    .result__title h3 {
-      font-size: var(--font-small); }
-    .result__title .result__name {
-      font-size: var(--font-medium); }
-    .result__title img {
-      margin: 50px 0; }
-  .result__info {
-    font-family: 'Noto Sans KR', sans-serif; }
+
+.qna {
+  display: none; }
+
+.loading {
+  display: none; }

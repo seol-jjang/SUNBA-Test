@@ -1,11 +1,11 @@
 const qnaList = [
     {
-        q: "1. 나는 평소에... ",
+        q: "1. 나는 00을(를) 좋아해!",
         a: [
-            {answer: 'a. 게임을 자주 해'},
-            {answer: 'b. 요리를 자주 해'},
-            {answer: 'c. 음악을 자주 들어'},
-            {answer: 'd. 그 외'}
+            {answer: 'a. 게임'},
+            {answer: 'b. 요리'},
+            {answer: 'c. 음악'},
+            {answer: 'd. 토크'}
         ]
     },
     {
