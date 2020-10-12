@@ -22,7 +22,7 @@ const chooseAnswer = (answerText, index) => {
     const choiceBtn = document.createElement("button");
     const choiceContainer = document.querySelector(".qna__choice");
 
-    choiceBtn.innerText = answerText;
+    choiceBtn.textContent = answerText;
     choiceContainer.appendChild(choiceBtn);
 
     choiceBtn.addEventListener("click", () => {
@@ -34,7 +34,7 @@ const chooseAnswer = (answerText, index) => {
         parent.style.animation = "fade-out 0.3s forwards";
         setTimeout(() => {
             SELECT[questionIndex] = index; //anwser 번호
-            choiceContainer.innerHTML = "";
+            choiceContainer.textContent = "";
             parent.style.animation = "fade-in 0.3s forwards";
             NextQuestion();
         }, 300);
@@ -48,12 +48,12 @@ const NextQuestion = () => {
         return;
     }
 
-    pageNum.innerText = `${questionIndex + 1} / 10`;
+    pageNum.textContent = `${questionIndex + 1} / 10`;
     page.appendChild(pageNum);
 
     const questionNum = qnaList[questionIndex];
     const questionTitle = document.querySelector(".qna__title");
-    questionTitle.innerText = questionNum.q;
+    questionTitle.textContent = questionNum.q;
 
     for(let i in questionNum.a) {
         chooseAnswer(questionNum.a[i].answer, i);

@@ -4,11 +4,11 @@ const span = title.querySelector("span");
 
 const eventHandler = {
     mouseOver: function() {
-        span.innerText = "유튜브";
+        span.textContent = "유튜브";
 
     },
     mouseOut: function() {
-        span.innerText = "유튜브";
+        span.textContent = "유튜브";
     }
 };
 const {mouseOver, mouseOut} = eventHandler;

@@ -5,11 +5,13 @@
 @import "common/style-mixins";
 @import "common/animation";
 @import "hero";
+@import "qna";
 
 :root {
-    --green-color: #169b63;
-    --black-color: #1a1a1a;
+    --green-color: #2e852e;
     --grey-color: #6d6d6d;
+    --black-color: #1a1a1a;
+    --white-color: rgb(238, 238, 238);
 
     --font-large: 80px;
     --font-medium: 48px;
@@ -22,6 +24,7 @@
     color: var(--black-color);
     font-family: 'Hanna', fantasy;
     font-size: var(--font-default);
+    text-align: center;
     a {
         text-decoration: none;
         color: inherit;
@@ -29,72 +32,20 @@
 }
 
 main {
-    background-color: white;
+
 }
 
 section {
     margin: 0 auto;
-    min-height: 100vh;
-}
-
-.hero {
     height: 100vh;
     padding: 70px 10px;
-    &__wrap {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        animation: fade-in .7s forwards;
-        .start-btn {
-            @include btn;
-            margin-top: 30px;
-            cursor: pointer;
-            outline: none;
-            width: 50%;
-        }
-    }
-    &__title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        h3 {
-            margin-bottom: 60px;
-            font-size: var(--font-large);
-        }
-        p {
-            line-height: 1.4;
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-    }
-}
-
-@include mobile {
-    .hero {
-        .hero__title {
-            h3 {
-                font-size: 40px;
-            }
-            p {
-                font-size: 13px;
-            }
-        }
-        .start-btn {
-            margin-top: 10px;
-            padding: 5px;
-            border-radius: 10px;
-        }
-    }
+    background-color: white;
 }
 
 .result {
     display: none;
 }
-.qna {
-    display: none;
-}
+
 .loading {
     display: none;
 }
