@@ -149,6 +149,11 @@
     text-decoration: none;
     color: inherit; }
 
+main {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden; }
+
 section {
   margin: 0 auto;
   padding: 70px 10px;
