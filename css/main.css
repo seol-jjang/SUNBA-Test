@@ -21,38 +21,39 @@
   100% {
     opacity: 0; } }
 
-.hero-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  animation: fade-in .7s forwards; }
-  .hero-wrap .start-btn {
-    padding: 10px 15px;
-    border: 5px solid var(--black-color);
-    border-radius: 15px;
-    background-color: var(--black-color);
-    font-size: var(--font-medium);
+.hero {
+  margin-top: 50px; }
+  .hero-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fade-in .7s forwards; }
+    .hero-wrap .start-btn {
+      padding: 10px 15px;
+      border: 5px solid var(--black-color);
+      border-radius: 15px;
+      background-color: var(--black-color);
+      font-size: var(--font-medium);
+      text-align: center;
+      color: white;
+      cursor: pointer;
+      outline: none;
+      padding: 10px 10%; }
+  .hero__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    color: white;
-    cursor: pointer;
-    outline: none;
-    padding: 10px 10%; }
-
-.hero__title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 100px; }
-  .hero__title h3 {
-    margin-bottom: 40px;
-    font-size: var(--font-large); }
-  .hero__title p {
-    line-height: 1.4;
-    font-family: 'Noto Sans KR', sans-serif; }
-    .hero__title p:first-child {
-      font-size: 5px; }
+    margin-bottom: 100px; }
+    .hero__title h3 {
+      margin-bottom: 40px;
+      font-size: var(--font-large); }
+    .hero__title p {
+      line-height: 1.4;
+      font-family: 'Noto Sans KR', sans-serif; }
+      .hero__title p:first-child {
+        font-size: 5px; }
 
 @media (max-width: 768px) {
   .hero-wrap .start-btn {
@@ -110,12 +111,14 @@
         margin-bottom: 30px; }
 
 @media (max-width: 768px) {
-  .qna__title {
-    font-size: 38px;
-    margin: 50px 0; }
-  .qna__choice button {
-    width: 100%;
-    font-size: var(--font-small); } }
+  .qna {
+    margin-top: 50px; }
+    .qna__title {
+      font-size: 38px;
+      margin: 50px 0; }
+    .qna__choice button {
+      width: 100%;
+      font-size: var(--font-small); } }
 
 @media (max-width: 480px) {
   .qna__page span {
@@ -148,7 +151,6 @@
 
 section {
   margin: 0 auto;
-  margin-top: 50px;
   padding: 70px 10px;
   background-color: white; }
 
