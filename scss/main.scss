@@ -42,6 +42,18 @@ section {
     background-color: white;
 }
 
+@include tablet {
+    section {
+        padding: 35px 10px;
+    }
+}
+
+@include mobile {
+    section {
+        padding: 20px 10px;
+    }
+}
+
 .result {
     display: none;
 }
