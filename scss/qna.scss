@@ -33,6 +33,7 @@
 }
 @include tablet {
     .qna {
+        padding: 35px;
         &__title {
             font-size: 38px;
             margin: 50px 0;
@@ -48,6 +49,7 @@
 
 @include mobile {
     .qna {
+        padding: 15px;
         &__page span {
             font-size: var(--font-default);
         }
