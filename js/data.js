@@ -1,6 +1,6 @@
 const qnaList = [
     {
-        q: "1. 나는 00을(를) 좋아해!",
+        q: "1. 이 중 하나를 고른다면?",
         a: [
             {answer: 'a. 게임'},
             {answer: 'b. 요리'},
@@ -23,4 +23,8 @@ const qnaList = [
         ]
     },
 ];
-const resultList = [];
+const resultList = [
+    {
+        title: "월드컵 중독"
+    }
+];
