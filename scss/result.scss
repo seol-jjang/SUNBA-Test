@@ -1,3 +1,4 @@
+@import "common/style-mixins";
 .result {
     &-wrap {
         margin-bottom: 50px;
@@ -22,6 +23,12 @@
                 top: 0;
                 left: 0;
             }
+        }
+    }
+    &__info {
+        p {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 13px;
         }
     }
     .more {

@@ -6,8 +6,54 @@ const pageNum = document.createElement("span");
 const loading = document.querySelector(".loading");
 const result = document.querySelector(".result");
 
+const END = 6;
 const SELECT = [];
 let questionIndex = -1;
+
+const sortResult = score => {
+    let num = 0;
+    if (score >= 0) {
+        num = 0;
+    } else if (score >= 13) {
+        num = 1;
+    } else if (score >= 15) {
+        num = 2;
+    } else if (score >= 18) {
+        num = 3;
+    } else if (score >= 20) {
+        num = 4;
+    } else if (score >= 23) {
+        num = 5;
+    } else if (score >= 25) {
+        num = 6;
+    } else if (score >= 28) {
+        num = 7;
+    } else if (score >= 9999) {
+        num = 8;
+    }
+    return num;
+}
+
+const calcScore = () => {
+    let score = 0;
+    for (let i = 0; i < END; i++) {
+        score += qnaList[i].a[SELECT[i]].score;
+    }
+    return score;
+}
+
+const resultCalc = () => {
+    const score = calcScore();
+    const resultNum = sortResult(score);
+
+    const resultTitle = document.querySelector(".result__name");
+    const resultInfo = document.querySelector(".result__info");
+    const video = document.querySelector(".video iframe");
+
+    resultTitle.innerText = resultList[resultNum].title;
+    resultInfo.innerText = resultList[resultNum].info;
+    video.src = resultList[resultNum].link;
+}
 
 const end = () => {
     qna.style.animation = "fade-out 0.3s forwards";
@@ -15,6 +61,7 @@ const end = () => {
     result.style.animation = "fade-in 0.3s forwards";
     setTimeout(()=> {
         result.style.display = "block";
+        resultCalc();
     }, 500);
 }
 

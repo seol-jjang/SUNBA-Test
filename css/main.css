@@ -112,6 +112,10 @@
     top: 0;
     left: 0; }
 
+.result__info p {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px; }
+
 .result .more h3 {
   font-size: var(--font-medium); }
 
