@@ -134,6 +134,10 @@
   background-color: #ca1919;
   margin-bottom: 10px; }
 
+.result .more .replay button {
+  background-color: #0fad44;
+  margin-bottom: 10px; }
+
 .result .more .twitch button {
   background-color: #9147ff; }
 
@@ -150,7 +154,7 @@
 * {
   box-sizing: border-box;
   color: var(--black-color);
-  font-family: 'BMJUA';
+  font-family: "BMJUA";
   font-size: var(--font-default);
   text-align: center; }
   * a {

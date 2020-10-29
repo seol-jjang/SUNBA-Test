@@ -8,45 +8,45 @@
 @import "result";
 
 :root {
-    --green-color: #2e852e;
-    --grey-color: #6d6d6d;
-    --black-color: #1a1a1a;
-    --white-color: rgb(238, 238, 238);
+  --green-color: #2e852e;
+  --grey-color: #6d6d6d;
+  --black-color: #1a1a1a;
+  --white-color: rgb(238, 238, 238);
 
-    --font-large: 50px;
-    --font-medium: 38px;
-    --font-small: 28px;
-    --font-default: 16px;
+  --font-large: 50px;
+  --font-medium: 38px;
+  --font-small: 28px;
+  --font-default: 16px;
 }
 
 * {
-    box-sizing: border-box;
-    color: var(--black-color);
-    font-family: 'BMJUA';
-    font-size: var(--font-default);
-    text-align: center;
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
+  box-sizing: border-box;
+  color: var(--black-color);
+  font-family: "BMJUA";
+  font-size: var(--font-default);
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 main {
-    margin: 0 auto;
-    max-width: 500px;
-    width: 100%;
-    height: 100%;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
 }
 
 section {
-    padding: 15% 10px;
-    background-color: white;
+  padding: 15% 10px;
+  background-color: white;
 }
 
 .result {
-    display: none;
+  display: none;
 }
 
 .loading {
-    display: none;
+  display: none;
 }

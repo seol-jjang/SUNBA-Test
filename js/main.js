@@ -1,124 +1,152 @@
-const start_btn = document.querySelector(".start-btn");
+const startBtn = document.querySelector(".start-btn");
 const hero = document.querySelector(".hero");
 const qna = document.querySelector(".qna");
-const page = document.querySelector(".qna__page");
-const pageNum = document.createElement("span");
 const loading = document.querySelector(".loading");
 const result = document.querySelector(".result");
 
-const END = 6;
-const SELECT = [];
-let questionIndex = -1;
+const SELECTED = [];
+let questionIndex = 0;
 
-const sortResult = score => {
-    let num = 0;
-    if (score >= 0) {
-        num = 0;
-    } else if (score >= 13) {
-        num = 1;
-    } else if (score >= 15) {
-        num = 2;
-    } else if (score >= 18) {
-        num = 3;
-    } else if (score >= 20) {
-        num = 4;
-    } else if (score >= 23) {
-        num = 5;
-    } else if (score >= 25) {
-        num = 6;
-    } else if (score >= 28) {
-        num = 7;
-    } else if (score >= 9999) {
-        num = 8;
-    }
-    return num;
+const FADE_OUT = "fade-out 0.3s forwards";
+const FADE_IN = "fade-in 0.3s forwards";
+
+function selectResult(score) {
+  let num = 0;
+  if (9999 <= score) {
+    num = 0;
+  } else if (score <= 70) {
+    num = 1;
+  } else if (score <= 80) {
+    num = 2;
+  } else if (score <= 105) {
+    num = 3;
+  } else if (score <= 115) {
+    num = 4;
+  } else if (score <= 135) {
+    num = 5;
+  } else if (score <= 145) {
+    num = 6;
+  } else if (score <= 150) {
+    num = 7;
+  } else if (score <= 155) {
+    num = 8;
+  } else if (score <= 165) {
+    num = 9;
+  } else if (score <= 175) {
+    num = 10;
+  } else if (score <= 185) {
+    num = 11;
+  } else if (185 < score < 9999) {
+    num = 12;
+  } else if (score <= 10000) {
+    num = 13;
+  }
+  return num;
 }
 
-const calcScore = () => {
-    let score = 0;
-    for (let i = 0; i < END; i++) {
-        score += qnaList[i].a[SELECT[i]].score;
-    }
-    return score;
+function calcScore() {
+  let value = 0;
+  for (let i = 0; i < SELECTED.length; i++) {
+    value += qnaList[i].a[SELECTED[i].aIndex].score;
+  }
+  return value;
 }
 
-const resultCalc = () => {
-    const score = calcScore();
-    const resultNum = sortResult(score);
-
-    const resultTitle = document.querySelector(".result__name");
-    const resultInfo = document.querySelector(".result__info");
-    const video = document.querySelector(".video iframe");
-
-    resultTitle.innerText = resultList[resultNum].title;
-    resultInfo.innerText = resultList[resultNum].info;
-    video.src = resultList[resultNum].link;
+function resultCalc() {
+  const resultTitle = document.querySelector(".result__name");
+  const resultInfo = document.querySelector(".result__info");
+  const video = document.querySelector(".video iframe");
+  const score = calcScore();
+  const resultIndex = selectResult(score);
+  if (SELECTED[0].aIndex === "0") {
+    resultTitle.innerText = resultList[0].title;
+    resultInfo.innerText = resultList[0].info;
+    video.src = resultList[0].video;
+  } else if (SELECTED[1].aIndex === "1") {
+    resultTitle.innerText = resultList[13].title;
+    resultInfo.innerText = resultList[13].info;
+    video.src = resultList[13].video;
+  } else {
+    resultTitle.innerText = resultList[resultIndex].title;
+    resultInfo.innerText = resultList[resultIndex].info;
+    video.src = resultList[resultIndex].video;
+  }
 }
 
-const end = () => {
-    qna.style.animation = "fade-out 0.3s forwards";
+function goResult() {
+  qna.style.animation = FADE_OUT;
+  result.style.animation = FADE_IN;
+
+  console.log(SELECTED);
+  setTimeout(() => {
+    result.style.display = "block";
     qna.style.display = "none";
-    result.style.animation = "fade-in 0.3s forwards";
-    setTimeout(()=> {
-        result.style.display = "block";
-        resultCalc();
-    }, 500);
+    resultCalc();
+  }, 300);
 }
 
-const chooseAnswer = (answerText, index) => {
-    const choiceBtn = document.createElement("button");
-    const choiceContainer = document.querySelector(".qna__choice");
+function printAnswerBtn(answerText, index) {
+  const choiceBtn = document.createElement("button");
+  const qnaWrap = document.querySelector(".qna-wrap");
+  const choiceContainer = qnaWrap.querySelector(".qna__choice");
 
-    choiceBtn.textContent = answerText;
-    choiceContainer.appendChild(choiceBtn);
+  choiceBtn.innerText = answerText;
+  choiceContainer.append(choiceBtn);
 
-    choiceBtn.addEventListener("click", () => {
-        const parent = choiceContainer.parentNode;
-        const childrens = parent.childNodes;
-        for (let i in childrens) {
-            childrens[i].disabled = true;
-        }
-        parent.style.animation = "fade-out 0.3s forwards";
-        setTimeout(() => {
-            SELECT[questionIndex] = index; //anwser 번호
-            choiceContainer.textContent = "";
-            parent.style.animation = "fade-in 0.3s forwards";
-            NextQuestion();
-        }, 300);
-    });
-}
+  choiceBtn.addEventListener("click", () => {
+    qnaWrap.style.animation = FADE_OUT;
+    const selectObj = {
+      qIndex: questionIndex - 1,
+      aIndex: index
+    };
 
+    const { qIndex, aIndex } = selectObj;
+    SELECTED.push(selectObj);
 
-const NextQuestion = () => {
-    if(questionIndex++ === qnaList.length - 1) {
-        end();
-        return;
+    if (qIndex === 0 && aIndex === "0") {
+      goResult();
+    } else if (qIndex === 1 && aIndex === "1") {
+      goResult();
     }
-
-    pageNum.textContent = `${questionIndex + 1} / 10`;
-    page.appendChild(pageNum);
-
-    const questionNum = qnaList[questionIndex];
-    const questionTitle = document.querySelector(".qna__title");
-    questionTitle.textContent = questionNum.q;
-
-    for(let i in questionNum.a) {
-        chooseAnswer(questionNum.a[i].answer, i);
-    }
+    setTimeout(() => {
+      choiceContainer.innerText = "";
+      qnaWrap.style.animation = FADE_IN;
+      questionTime();
+    }, 300);
+  });
 }
 
-const handleStart = () => {
-    hero.style.animation = "fade-out 0.3s forwards";
-    qna.style.animation = "fade-in 0.3s forwards";
-    setTimeout(()=> {
-        hero.style.display = "none";
-        qna.style.display = "block";
-    }, 400);
-    NextQuestion();
+function questionTime() {
+  const qnaPage = document.querySelector(".qna__page");
+  const questionTitle = document.querySelector(".qna__title");
+
+  if (questionIndex === qnaList.length) {
+    goResult();
+    return;
+  }
+
+  qnaPage.innerText = `${questionIndex + 1} / 10`;
+  const question = qnaList[questionIndex];
+  questionTitle.innerText = question.q;
+
+  for (let i in question.a) {
+    printAnswerBtn(question.a[i].answer, i);
+  }
+  questionIndex++;
+}
+
+function handleStart() {
+  hero.style.animation = FADE_OUT;
+  qna.style.animation = FADE_IN;
+  setTimeout(() => {
+    hero.style.display = "none";
+    qna.style.display = "block";
+    questionTime();
+  }, 400);
 }
 
 function init() {
-    start_btn.addEventListener("click", handleStart);
+  startBtn.addEventListener("click", handleStart);
 }
 
 init();
