@@ -31,7 +31,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: fade-in .7s forwards; }
+  animation: fade-in 0.7s forwards; }
   .hero-wrap .start-btn {
     padding: 10px 15px;
     border: 5px solid var(--black-color);
@@ -40,10 +40,14 @@
     font-size: var(--font-small);
     text-align: center;
     color: white;
+    transition: all 0.2s cubic-bezier(0.65, 0.02, 0.28, 0.99);
     cursor: pointer;
     outline: none;
     width: 80%;
     margin-top: 50px; }
+    .hero-wrap .start-btn:hover {
+      background-color: var(--green-color);
+      border: 5px solid var(--green-color); }
 
 .hero__title {
   display: flex;
@@ -55,10 +59,12 @@
     margin-bottom: 50px; }
   .hero__title p {
     line-height: 1.4;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-size: 13px; }
-    .hero__title p:first-child {
-      font-size: 5px; }
+  .hero__title > p:first-child {
+    font-size: 5px; }
+  .hero__title .hero__ex p:last-child {
+    margin-top: 5px; }
 
 .qna {
   display: none; }
@@ -83,12 +89,23 @@
       font-size: var(--font-small);
       text-align: center;
       color: white;
+      transition: all 0.2s cubic-bezier(0.65, 0.02, 0.28, 0.99);
       cursor: pointer;
       outline: none;
       width: 80%;
       font-size: var(--font-default); }
+      .qna__choice button:hover {
+        background-color: var(--green-color);
+        border: 5px solid var(--green-color); }
       .qna__choice button:not(:last-child) {
         margin-bottom: 15px; }
+
+.loading-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-small); }
 
 .result-wrap {
   margin-bottom: 50px; }
@@ -113,7 +130,7 @@
     left: 0; }
 
 .result__info p {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 13px; }
 
 .result .more h3 {
@@ -142,7 +159,7 @@
   background-color: #9147ff; }
 
 :root {
-  --green-color: #2e852e;
+  --green-color: #19a819;
   --grey-color: #6d6d6d;
   --black-color: #1a1a1a;
   --white-color: rgb(238, 238, 238);

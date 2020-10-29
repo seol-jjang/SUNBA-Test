@@ -73,15 +73,30 @@ function resultCalc() {
   }
 }
 
+function goLoading() {
+  const audio = document.createElement("audio");
+  audio.src = "image/yorororo.mp3";
+  audio.autoplay = "true";
+  audio.volume = 0.1;
+
+  setTimeout(() => {
+    loading.style.animation = FADE_OUT;
+    result.style.animation = FADE_IN;
+    setTimeout(() => {
+      loading.style.display = "none";
+      result.style.display = "block";
+      resultCalc();
+    }, 400);
+  }, 3000);
+}
+
 function goResult() {
   qna.style.animation = FADE_OUT;
-  result.style.animation = FADE_IN;
-
-  console.log(SELECTED);
+  loading.style.animation = FADE_IN;
   setTimeout(() => {
-    result.style.display = "block";
     qna.style.display = "none";
-    resultCalc();
+    loading.style.display = "block";
+    goLoading();
   }, 300);
 }
 
@@ -99,7 +114,6 @@ function printAnswerBtn(answerText, index) {
       qIndex: questionIndex - 1,
       aIndex: index
     };
-
     const { qIndex, aIndex } = selectObj;
     SELECTED.push(selectObj);
 
@@ -121,6 +135,8 @@ function questionTime() {
   const questionTitle = document.querySelector(".qna__title");
 
   if (questionIndex === qnaList.length) {
+    qnaPage.innerText = "";
+    questionTitle.innerText = "";
     goResult();
     return;
   }

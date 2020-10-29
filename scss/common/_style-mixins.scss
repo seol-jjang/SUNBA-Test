@@ -1,21 +1,24 @@
-@import "_variables";
-
 @mixin btn {
-    padding: 10px 15px;
-    border: 5px solid var(--black-color);
-    border-radius: 15px;
-    background-color: var(--black-color);
-    font-size: var(--font-small);
-    text-align: center;
-    color: white;
+  padding: 10px 15px;
+  border: 5px solid var(--black-color);
+  border-radius: 15px;
+  background-color: var(--black-color);
+  font-size: var(--font-small);
+  text-align: center;
+  color: white;
+  transition: all 0.2s cubic-bezier(0.65, 0.02, 0.28, 0.99);
+  &:hover {
+    background-color: var(--green-color);
+    border: 5px solid var(--green-color);
+  }
 }
 
 @mixin linkBtn {
-    cursor: pointer;
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    padding: 15px;
-    font-size: var(--font-small);
-    text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: var(--font-small);
+  text-align: center;
 }

@@ -1,6 +1,5 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css";
 @import "common/font";
-@import "common/responsive-mixins";
 @import "common/animation";
 @import "common/style-mixins";
 @import "hero";
@@ -8,7 +7,7 @@
 @import "result";
 
 :root {
-  --green-color: #2e852e;
+  --green-color: #19a819;
   --grey-color: #6d6d6d;
   --black-color: #1a1a1a;
   --white-color: rgb(238, 238, 238);

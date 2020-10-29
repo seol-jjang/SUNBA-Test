@@ -1,35 +1,40 @@
 @import "common/style-mixins";
 .hero {
-    &-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        animation: fade-in .7s forwards;
-        .start-btn {
-            @include btn;
-            cursor: pointer;
-            outline: none;
-            width: 80%;
-            margin-top: 50px;
-        }
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fade-in 0.7s forwards;
+    .start-btn {
+      @include btn;
+      cursor: pointer;
+      outline: none;
+      width: 80%;
+      margin-top: 50px;
     }
-    &__title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        h3 {
-            font-size: var(--font-large);
-            margin-bottom: 50px;
-        }
-        p {
-            line-height: 1.4;
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: 13px;
-            &:first-child {
-                font-size: 5px;
-            }
-        }
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    h3 {
+      font-size: var(--font-large);
+      margin-bottom: 50px;
     }
+    p {
+      line-height: 1.4;
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 13px;
+    }
+    & > p:first-child {
+      font-size: 5px;
+    }
+    .hero__ex p {
+      &:last-child {
+        margin-top: 5px;
+      }
+    }
+  }
 }
